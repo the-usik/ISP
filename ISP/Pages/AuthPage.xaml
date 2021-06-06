@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="ISP.Pages.AuthPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ISP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource CustomAcrylicBackgroundBrush}">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0, 24, 0, 0"></Setter>
+            <Setter Property="CornerRadius" Value="2"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Pivot HorizontalAlignment="Center">
+        <PivotItem Header="Log in">
+            <ScrollViewer>
+                <StackPanel HorizontalAlignment="Center" Width="200">
+                    <PersonPicture DisplayName="{x:Bind LogInModel.Login}" />
+                    <TextBox x:Name="AuthLoginInput" Text="{x:Bind Path=LogInModel.Login, Mode=TwoWay}" Header="Login" InputScope="Password"/>
+                    <PasswordBox x:Name="AuthPasswordInput" Password="{x:Bind Path=LogInModel.Password, Mode=TwoWay}" Margin="0, 20, 0, 0" Header="Password" InputScope="Password"/>
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock x:Name="AuthErrorTextBlock" Visibility="Collapsed" Text="Form data is incorrect" Foreground="{ThemeResource SystemErrorTextColor}" TextAlignment="Center"  HorizontalAlignment="Center" Margin="0, 20, 0, 0"></TextBlock>
+                        <Button HorizontalAlignment="Center" x:Name="AuthButton" Content="Auth" Margin="0, 20, 0, 0"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Sign up">
+            <ScrollViewer>
+                <StackPanel HorizontalAlignment="Center" MaxWidth="400">
+                    <PersonPicture DisplayName="{x:Bind SignUpModel.FullName}" />
+                    <TextBox x:Name="FirstName" Text="{x:Bind Path=SignUpModel.FirstName, Mode=TwoWay}" Header="First name" InputScope="PersonalFullName"/>
+                    <TextBox x:Name="LastName" Text="{x:Bind Path=SignUpModel.LastName, Mode=TwoWay}" Header="Last name"/>
+                    <RelativePanel Margin="0, 24, 0, 0">
+                        <TextBox x:Name="LoginInput" Text="{x:Bind Path=SignUpModel.Login, Mode=TwoWay}" Margin="0" Width="190" Header="Login" InputScope="Password"/>
+                        <PasswordBox x:Name="PasswordInput" Password="{x:Bind Path=SignUpModel.Password, Mode=TwoWay}" Width="190" Margin="210, 0, 0, 0" Header="Password" InputScope="Password"/>
+                    </RelativePanel>
+                    <TextBox x:Name="PhoneNumber" Header="Phone number" Text="{x:Bind Path=SignUpModel.Phone, Mode=TwoWay}" MaxLength="13" Width="400" InputScope="TelephoneNumber" />
+                    <TextBox x:Name="Email" Header="Email" MaxLength="50" Text="{x:Bind Path=SignUpModel.Email, Mode=TwoWay}" Width="400" InputScope="EmailSmtpAddress" />
+                    <DatePicker x:Name="Bdate" Header="Birthday" SelectedDate="{
+                        x:Bind Path=SignUpModel.BirthDateOffset, 
+                        Mode=TwoWay}" Width="400" Margin="0, 24, 0, 0" ></DatePicker>
+                    <TextBox x:Name="Address" Header="Address" Text="{x:Bind Path=SignUpModel.Address, Mode=TwoWay}" MaxLength="100" Width="400" HorizontalAlignment="Left" />
+
+                    <TextBlock x:Name="SignUpErrorTextBlock" Visibility="Collapsed" TextAlignment="Center" Foreground="{ThemeResource SystemErrorTextColor}" Margin="0, 24" Text="test"></TextBlock>
+                    
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button x:Name="SignUpButton" Content="Sign up" MinWidth="80" Margin="0,24"/>
+                        <Button x:Name="CancelButton" Content="Cancel" MinWidth="80" Margin="24"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+
+    </Pivot>
+</Page>

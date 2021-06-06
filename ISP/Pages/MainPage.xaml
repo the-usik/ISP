@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="ISP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource CustomAcrylicBackgroundBrush}">
+
+
+    <NavigationView x:Name="NavigationView" SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView.MenuItems>
+            <NavigationViewItem x:Name="HomeNavigationItem" Icon="Home" Content="News" Tag="Blog" />
+            <NavigationViewItem x:Name="AccountNavigationItem" Icon="Contact" Content="Account" Tag="Account" />
+            <NavigationViewItem x:Name="RatesNavigationItem" Icon="Library" Content="Rates" Tag="Rates" />
+            <NavigationViewItem x:Name="ServicesNavigationItem" Icon="OtherUser" Content="Services" Tag="Services" />
+            <NavigationViewItem x:Name="UsersNavigationItem" Icon="People" Content="Users" Tag="Users" />
+            <NavigationViewItem x:Name="AboutNavigationItem" Icon="Help" Content="About" Tag="About"/>
+            <NavigationViewItem x:Name="LogoutNavigationItem" Icon="Back" Content="Logout" Tag="Logout"/>
+        </NavigationView.MenuItems>
+        
+        <Frame x:Name="contentFrame"/>
+    </NavigationView>
+</Page>

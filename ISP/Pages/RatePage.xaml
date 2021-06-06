@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="ISP.Pages.RatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ISP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button x:Name="AddButton" Content="Add"></Button>
+            <Button x:Name="DeleteButton" Content="Delete"></Button>
+            <Button x:Name="PlugButton" Content="Plug"></Button>
+
+            <TextBox MinWidth="250" x:Name="SearchInput" PlaceholderText="Enter a query..."></TextBox>
+        </StackPanel>
+
+
+        <controls:DataGrid x:Name="RateDataGrid"></controls:DataGrid>
+
+    </StackPanel>
+
+</Page>
